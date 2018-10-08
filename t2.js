@@ -8,7 +8,7 @@ browser.get('https://profile.tut.by/register.html');
 });
   it('TimeFunc', function() {   
 	browser.wait(function(search){
-		browser.element(search).isDisplayed();
+		browser.element(search);
 }, 15000);
   });
 });

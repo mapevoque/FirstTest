@@ -1,25 +1,25 @@
 var yandexHomepage = require('./page');
+var geoPage = require('./page2');
 var coreFunc = require('./coreFunc');
-describe('Firsttest', function() {
-coreFunc.angularwait;		
+describe('Firsttest', function() {		
   it('eeeee', function() {  
     yandexHomepage.get();
 	yandexHomepage.clickOnCity();
-    yandexHomepage.clearField().yandexHomepage.inputCity('Лондон');
-	//yandexHomepage
-	yandexHomepage.waitLondon();
-	yandexHomepage.selectLondon();	
+	geoPage.clearAndInputCity('Лондон');
+	geoPage.waitLondon();
+	geoPage.selectLondon();	
 	yandexHomepage.waitMoreButton();
 	yandexHomepage.clickOnMore();
-	yandexHomepage.getAndPrintLondonText();
+	yandexHomepage.getAndPrintLondonText().then(function(kikk){
+		console.log('HHHH ' + kikk);
+	});
     yandexHomepage.clickOnCity();
-    yandexHomepage.clearField();
-	yandexHomepage.inputCity('Париж');
-	yandexHomepage.waitParis();
-	yandexHomepage.selectParis();
+	geoPage.clearAndInputCity('Париж ');
+	geoPage.waitParis();
+	geoPage.selectParis();
 	yandexHomepage.waitMoreButton();
 	yandexHomepage.clickOnMore();
 	yandexHomepage.getAndPrintParisText();
-	expect(yandexHomepage.getLondonText()).toEqual(yandexHomepage.getParisText());	
+	expect(yandexHomepage.londonText).toEqual(yandexHomepage.getParisText());	
   });
 });

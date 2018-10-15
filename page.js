@@ -6,6 +6,9 @@ var YandexHomepage = function() {
   more_tabs1 = element.all(by.css(".home-tabs__more-item a"));
   var londonText = [];
   var parisText = [];
+  var callParis;
+  var callLondon;
+  var result;
   
   this.get = function() {
     browser.get('https://yandex.by/');
@@ -24,12 +27,14 @@ var YandexHomepage = function() {
   };
 
   this.getAndPrintLondonText = function() {
-   more_tabs.getText();
+	  
+   callLondon = more_tabs.getText();	
+	return callLondon;
   };  
   
   this.getAndPrintParisText = function() {
-    more_tabs1.getText();
-	
+    callParis = more_tabs1.getText();
+	return callParis;
   };
 
   this.getLondonText = function(){
